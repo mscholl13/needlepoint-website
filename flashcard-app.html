@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Needlepoint Flashcards</title>
+  <style>
+    body {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      background-color: #E9F4FF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .flashcard {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .controls {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 1rem;
+      background-color: #5e3a87;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #4a2f6b;
+    }
+
+    .home-button {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Needlepoint Flashcards</h1>
+  <div class="flashcard" id="flashcard">Click to see answer</div>
+  <div class="controls">
+    <button onclick="prevCard()">Previous</button>
+    <button onclick="nextCard()">Next</button>
+  </div>
+  <div class="home-button">
+    <a href="scratch.html" style="text-decoration: none;">
+      <span style="display: inline-block; padding: 10px 20px; background-color: #5e3a87; color: white; border-radius: 5px; font-weight: bold;">Back to Home</span>
+    </a>
+  </div>  
+
+  <script>
+    const flashcards = [
+      { question: "What is needlepoint?", answer: "A type of embroidery using a stiff canvas and threads." },
+      { question: "What type of canvas is typically used?", answer: "Mono canvas or interlock canvas." },
+      { question: "What is a tent stitch?", answer: "A basic diagonal stitch used in most needlepoint." },
+      { question: "Name a common fiber used in needlepoint.", answer: "Wool, cotton, or silk threads." },
+      { question: "What is blocking in needlepoint?", answer: "Reshaping your finished canvas to its original square form." },
+    ];
+
+    let currentIndex = 0;
+    let showingAnswer = false;
+
+    const flashcard = document.getElementById('flashcard');
+
+    function updateCard() {
+      flashcard.textContent = showingAnswer 
+        ? flashcards[currentIndex].answer 
+        : flashcards[currentIndex].question;
+    }
+
+    flashcard.addEventListener('click', () => {
+      showingAnswer = !showingAnswer;
+      updateCard();
+    });
+
+    function nextCard() {
+      currentIndex = (currentIndex + 1) % flashcards.length;
+      showingAnswer = false;
+      updateCard();
+    }
+
+    function prevCard() {
+      currentIndex = (currentIndex - 1 + flashcards.length) % flashcards.length;
+      showingAnswer = false;
+      updateCard();
+    }
+
+    updateCard();
+  </script>
+</body>
+</html>

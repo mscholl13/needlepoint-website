@@ -1,0 +1,38 @@
+/* styles.css */
+.navbar {
+    background-color: #E9F4FF;
+    padding: 10px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar a {
+    color: 1F3A56;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+body {
+    background-color: #E9F4FF;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: 1F3A56;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.centered-list {
+    list-style-position: inside;
+    text-align: center;
+    padding-left: 0;
+    margin: 0 auto;
+}
+
+ul, ol {
+    list-style-position: inside;
+    text-align: center;
+    padding-left: 0;
+}
